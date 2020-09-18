@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lab4;
 
 import java.util.ArrayList;
@@ -27,5 +23,15 @@ public class ArchivoDeTextoPlano {
     public ArchivoDeTextoPlano(String nameFile, ArrayList<String> contenido){
         this.nombreArchivo = nameFile;
         this.texto = contenido;
+        this.fecha = Fecha.obtenerFechaActual();
+    }
+    
+    @Override
+    public String toString(){
+        String archivoString = "Nombre del Archivo: "+this.nombreArchivo+"\nFecha de cración: "+this.fecha+"\nContenido: \n";
+        for(int i = 0; i < this.texto.size() ;i++){
+            archivoString = archivoString + "    " + texto.get(i) + "\n";
+        }
+        return archivoString;
     }
 }
