@@ -30,6 +30,15 @@ public class Workspace {
         }      
         return -1;
     }
+    /*metodo que entrega una representacion de Workspace como String*/
+    @Override
+    public String toString(){
+        String wsString = "####-WORKSPACE-####\n---------------------------------\n";
+        for(int i = 0; i < this.ws.size(); i++){
+            wsString += this.ws.get(i).toString()+"---------------------------------\n";
+        }
+        return wsString;
+    }
     /*Metodo que agrega los archivos de un commit a un workspace, en caso de que el archivo ya se encuentre, lo reemplaza*/
     /*public Workspace agregarArchCommit(Workspace wsAux, Commit esteCommit){
         int i=0;

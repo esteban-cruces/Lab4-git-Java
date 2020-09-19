@@ -27,6 +27,7 @@ public class ArchivoDeTextoPlano {
     }
     
     @Override
+    /*este metodo se encarga de crear una representacion en forma de String para el usuario*/
     public String toString(){
         String archivoString = "Nombre del Archivo: "+this.nombreArchivo+"\nFecha de cración: "+this.fecha+"\nContenido: \n";
         for(int i = 0; i < this.texto.size() ;i++){

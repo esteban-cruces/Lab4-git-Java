@@ -1,8 +1,7 @@
 
 package lab4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,6 +11,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     String nombreAutor;
     String nombreRepo;
+    String archivosAdd;
     Repositorio repo;
     /**
      * Creates new form Ventana
@@ -21,11 +21,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal(String autor, String repo) {
         this.nombreAutor = autor;
         this.nombreRepo = repo;
-        this.repo = Repositorio.gitInit(autor, repo);
+        this.repo = Repositorio.gitInit(autor, repo);        
         initComponents();    
+        this.jTextAreaNombreAutorYRepo.setText("El nombre del Autor es: "+this.nombreAutor+"\nEl nombre del Repositorio es: "+this.nombreRepo);
     }
 
-    public VentanaPrincipal() {
+    public VentanaPrincipal() {        
         initComponents();
     }
 
@@ -62,6 +63,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         textAreaContenidoArchivo = new javax.swing.JTextArea();
         jLabelNombreArchivo = new javax.swing.JLabel();
         jLabelContenidoArchivo = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextAreaNombreAutorYRepo = new javax.swing.JTextArea();
+        jLabelDatosRepo = new javax.swing.JLabel();
+        jButtonActualizarIndex = new javax.swing.JButton();
+        jButtonActualizarLocal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +131,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btGitLog.setBackground(new java.awt.Color(51, 255, 255));
+        btGitLog.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btGitLog.setForeground(new java.awt.Color(255, 0, 255));
         btGitLog.setText("Git Log");
 
         textFieldNombreArchivo.addActionListener(new java.awt.event.ActionListener() {
@@ -141,106 +150,130 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelContenidoArchivo.setText("Contenido del Archivo:");
 
+        jTextAreaNombreAutorYRepo.setColumns(20);
+        jTextAreaNombreAutorYRepo.setRows(5);
+        jTextAreaNombreAutorYRepo.setEditable(false);
+        jScrollPane6.setViewportView(jTextAreaNombreAutorYRepo);
+
+        jLabelDatosRepo.setText("Datos Del Repositorio");
+
+        jButtonActualizarIndex.setText("ACTUALIZAR INDEX");
+        jButtonActualizarIndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarIndexActionPerformed(evt);
+            }
+        });
+
+        jButtonActualizarLocal.setText("ACTUALIZAR LOCAL");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabelWorkspace)
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabelIndex)
-                        .addGap(157, 157, 157)
-                        .addComponent(jLabelLocalRepository)
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabelRemoteRepository))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btGitPull)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(27, 27, 27)
-                                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btGitAdd)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 627, Short.MAX_VALUE)
-                                                .addComponent(jLabelNombreArchivo))
-                                            .addComponent(btGitLog))
-                                        .addGap(10, 10, 10))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btGitPush)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabelContenidoArchivo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textFieldNombreArchivo)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btGitCommit)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btSalir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btCrearArchivo)
-                                .addGap(29, 29, 29)))))
-                .addGap(36, 36, 36))
+                .addGap(80, 80, 80)
+                .addComponent(jLabelWorkspace)
+                .addGap(139, 139, 139)
+                .addComponent(jLabelIndex)
+                .addGap(154, 154, 154)
+                .addComponent(jLabelLocalRepository)
+                .addGap(113, 113, 113)
+                .addComponent(jLabelRemoteRepository)
+                .addGap(189, 189, 189)
+                .addComponent(jLabelDatosRepo))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jButtonActualizarIndex)
+                .addGap(71, 71, 71)
+                .addComponent(jButtonActualizarLocal)
+                .addGap(279, 279, 279)
+                .addComponent(jLabelNombreArchivo)
+                .addGap(40, 40, 40)
+                .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(btGitAdd)
+                .addGap(13, 13, 13)
+                .addComponent(btGitCommit)
+                .addGap(17, 17, 17)
+                .addComponent(btGitPush)
+                .addGap(19, 19, 19)
+                .addComponent(btGitPull)
+                .addGap(35, 35, 35)
+                .addComponent(btGitLog)
+                .addGap(219, 219, 219)
+                .addComponent(jLabelContenidoArchivo)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(btSalir)
+                .addGap(982, 982, 982)
+                .addComponent(btCrearArchivo))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelWorkspace)
                     .addComponent(jLabelIndex)
                     .addComponent(jLabelLocalRepository)
-                    .addComponent(jLabelRemoteRepository))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4))
+                    .addComponent(jLabelRemoteRepository)
+                    .addComponent(jLabelDatosRepo))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonActualizarIndex)
+                    .addComponent(jButtonActualizarLocal)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabelNombreArchivo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btGitAdd)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNombreArchivo))
-                        .addGap(4, 4, 4)))
-                .addComponent(btGitCommit)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(104, 104, 104)
+                        .addComponent(btGitAdd))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btGitPush)
-                        .addGap(18, 18, 18)
-                        .addComponent(btGitPull)
-                        .addGap(18, 18, 18)
+                        .addGap(104, 104, 104)
+                        .addComponent(btGitCommit))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(btGitPush))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(btGitPull))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
                         .addComponent(btGitLog))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelContenidoArchivo)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabelContenidoArchivo))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btSalir)
-                    .addComponent(btCrearArchivo))
-                .addGap(22, 22, 22))
+                    .addComponent(btCrearArchivo)))
         );
 
         pack();
@@ -248,27 +281,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btGitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitAddActionPerformed
-       
-       /* ArrayList<String> contenido = new ArrayList<>();
-        contenido.add("Hola ");
-        contenido.add("como ");
-        contenido.add("están? ");
-        ArchivoDeTextoPlano arch = new ArchivoDeTextoPlano("Archivo1.txt",contenido);
-        this.textWorkspace.setText(arch.nombreArchivo + "\n" + arch.fecha + "\n" + arch.texto.get(0) + arch.texto.get(1) + arch.texto.get(2) + this.nombreAutor + this.nombreRepo);*/
+       VentanaGitAdd ventanitaAdd = new VentanaGitAdd(this);
+       ventanitaAdd.setVisible(true);
+       /*debido que al abrir la ventanitaAdd los String ingresados en esta no se hacen presente de inmediato aca,
+       es que el verdadero metodo GitAdd se ejecuta con el boton 'ACTUALIZAR INDEX'*/
     }//GEN-LAST:event_btGitAddActionPerformed
 
     private void btGitCommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitCommitActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Esto es Git Commit");        
     }//GEN-LAST:event_btGitCommitActionPerformed
-
+    
     private void btCrearArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearArchivoActionPerformed
-        ArrayList<String> contenido = new ArrayList<>();
-        String contenidoEnString = this.textAreaContenidoArchivo.getText();
-        String[] contenidoEnStringSeparado = contenidoEnString.split("\n");
-        contenido.addAll(Arrays.asList(contenidoEnStringSeparado));         
-        ArchivoDeTextoPlano archivo = new ArchivoDeTextoPlano(this.textFieldNombreArchivo.getText(),contenido);
-        String archivoAString = this.textWorkspace.getText() + "------------------------------------------------ \n" +archivo.toString();
-        this.textWorkspace.setText(archivoAString);
+        if(this.textFieldNombreArchivo.getText().length() >= 1){
+            this.repo.crearArchivo(this.textFieldNombreArchivo.getText(), this.textAreaContenidoArchivo.getText());
+            String wsString = this.repo.workspace.toString();
+            this.textWorkspace.setText(wsString);        
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL ARCHIVO PARA AGREGARLO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
+        }
+        this.textFieldNombreArchivo.setText("");
+        this.textAreaContenidoArchivo.setText("");
     }//GEN-LAST:event_btCrearArchivoActionPerformed
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
@@ -278,6 +311,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void textFieldNombreArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreArchivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldNombreArchivoActionPerformed
+
+    private void jButtonActualizarIndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarIndexActionPerformed
+        if("AddAll".equals(this.archivosAdd)){
+            this.repo.gitAdd();
+        }
+        else{
+            this.repo.gitAdd(this.archivosAdd);
+        }
+        this.textIndex.setText(this.repo.index.toString());
+        this.archivosAdd = "";
+    }//GEN-LAST:event_jButtonActualizarIndexActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,11 +351,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaPrincipal().setVisible(true);
-                
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VentanaPrincipal().setVisible(true);
         });
     }
 
@@ -323,7 +364,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btGitPull;
     private javax.swing.JButton btGitPush;
     private javax.swing.JButton btSalir;
+    private javax.swing.JButton jButtonActualizarIndex;
+    private javax.swing.JButton jButtonActualizarLocal;
     private javax.swing.JLabel jLabelContenidoArchivo;
+    private javax.swing.JLabel jLabelDatosRepo;
     private javax.swing.JLabel jLabelIndex;
     private javax.swing.JLabel jLabelLocalRepository;
     private javax.swing.JLabel jLabelNombreArchivo;
@@ -334,6 +378,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTextAreaNombreAutorYRepo;
     private javax.swing.JTextArea textAreaContenidoArchivo;
     private javax.swing.JTextField textFieldNombreArchivo;
     private javax.swing.JTextArea textIndex;

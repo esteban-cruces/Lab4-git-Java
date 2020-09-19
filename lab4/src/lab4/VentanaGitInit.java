@@ -5,6 +5,8 @@
  */
 package lab4;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Esteban
@@ -57,36 +59,36 @@ public class VentanaGitInit extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelRepositorio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelAutor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(39, 39, 39)
+                .addComponent(jLabelAutor)
+                .addGap(10, 10, 10)
+                .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabelRepositorio)
+                .addGap(10, 10, 10)
+                .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(144, 144, 144)
-                .addComponent(jButtonIngresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButtonIngresar))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAutor))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabelAutor))
+                    .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRepositorio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButtonIngresar)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabelRepositorio))
+                    .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jButtonIngresar))
         );
 
         pack();
@@ -98,9 +100,14 @@ public class VentanaGitInit extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldRepositorioActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        VentanaPrincipal ventanaZonas = new VentanaPrincipal(textFieldAutor.getText(),textFieldRepositorio.getText());
-        this.setVisible(false);
-        ventanaZonas.setVisible(true);
+        if(textFieldAutor.getText().length() >= 1 && textFieldRepositorio.getText().length() >= 1){
+            VentanaPrincipal ventanaZonas = new VentanaPrincipal(textFieldAutor.getText(),textFieldRepositorio.getText());
+            this.setVisible(false);
+            ventanaZonas.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL REPOSITORIO Y EL AUTOR.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
+        }        
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     /**
@@ -131,10 +138,8 @@ public class VentanaGitInit extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaGitInit().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VentanaGitInit().setVisible(true);
         });
     }
 
