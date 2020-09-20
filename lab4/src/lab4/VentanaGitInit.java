@@ -1,20 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.3
+ */ 
 package lab4;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Esteban
- */
+* Clase para mostrar la interfaz de gitinit,
+* determinada por interfaz
+* @version 1.3
+* @author Esteban Cruces Araneda
+*/
 public class VentanaGitInit extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaGitInit
+     * constructor
      */
     public VentanaGitInit() {
         initComponents();
@@ -45,12 +48,6 @@ public class VentanaGitInit extends javax.swing.JFrame {
 
         jLabelRepositorio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelRepositorio.setText("Nombre Repositorio:");
-
-        textFieldRepositorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldRepositorioActionPerformed(evt);
-            }
-        });
 
         jButtonIngresar.setBackground(new java.awt.Color(0, 204, 204));
         jButtonIngresar.setText("Ingresar");
@@ -112,11 +109,10 @@ public class VentanaGitInit extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void textFieldRepositorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldRepositorioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldRepositorioActionPerformed
-
+    /**
+     * metodo abre la ventana principal
+     * @param evt
+     */
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         if(textFieldAutor.getText().length() >= 1 && textFieldRepositorio.getText().length() >= 1){
             VentanaPrincipal ventanaZonas = new VentanaPrincipal(textFieldAutor.getText(),textFieldRepositorio.getText());
@@ -124,7 +120,7 @@ public class VentanaGitInit extends javax.swing.JFrame {
             ventanaZonas.setVisible(true);
         }
         else{
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL REPOSITORIO Y EL AUTOR.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL REPOSITORIO Y EL AUTOR.","operación mal ingresada",JOptionPane.ERROR_MESSAGE);
         }        
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 

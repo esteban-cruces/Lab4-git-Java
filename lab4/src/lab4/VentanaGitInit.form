@@ -107,9 +107,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textFieldRepositorio">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldRepositorioActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonIngresar">
           <Properties>

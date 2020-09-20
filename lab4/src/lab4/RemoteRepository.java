@@ -1,21 +1,32 @@
-
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.2
+ */
 package lab4;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author Esteban
- */
-/*Esta es la clase que almacena los Commit, hechos del repositorio, de forma remota*/
+* Clase para representar la zona remote repository,
+* determinada por rR,
+* @version 1.2
+* @author Esteban Cruces Araneda
+*/
 public class RemoteRepository {
     /*En este atributo se agregan los archivosa que pertenencen al Remote Repository*/
     ArrayList<Commit> rR;
-    /*constructor*/
+    /**
+     * constructor
+     */
     public RemoteRepository(){
         this.rR = new ArrayList<>();
     }
-    /*metodo que entrega un String con la representacion del Remote REpository*/
+    /**
+     * metodo que muestra representacion como string del remote repository
+     * @return String como representacion del remote repository
+     */
     @Override
     public String toString(){
         String lRString = "##########\n";

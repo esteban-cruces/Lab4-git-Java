@@ -1,32 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.2
+ */ 
 package lab4;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Esteban
- */
+* Clase para mostrar la interfaz de gitcommit,
+* determinada por interfaz
+* @version 1.2
+* @author Esteban Cruces Araneda
+*/
 public class VentanaGitCommit extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaGitCommit
      */    
     VentanaPrincipal interfaz;
-    
+    /**
+     * constructor
+     * @param ventana ventana principal
+     */
     public VentanaGitCommit(VentanaPrincipal ventana) {
         this.interfaz = ventana;
         initComponents();
     }
-    
+    /**
+     * constructor
+     */
     public VentanaGitCommit() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,7 +135,10 @@ public class VentanaGitCommit extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * metodo que reliaza un gitCommit
+     * @param evt
+     */
     private void jButtonCommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCommitActionPerformed
         if(this.jTextFieldNameCommit.getText().length() >= 1 && this.jTextFieldAutorCommit.getText().length() >= 1){
             int estado = this.interfaz.repo.gitCommit(this.jTextFieldNameCommit.getText(),this.jTextFieldAutorCommit.getText());
@@ -138,19 +148,21 @@ public class VentanaGitCommit extends javax.swing.JFrame {
                 this.setVisible(false);
             }            
             else if(estado == 3){
-                JOptionPane.showMessageDialog(null,"LA ZONA INDEX SE ENCUNETRA VACIA.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);                    
+                JOptionPane.showMessageDialog(null,"LA ZONA INDEX SE ENCUNETRA VACIA.","operación mal ingresada",JOptionPane.ERROR_MESSAGE);                    
                 this.setVisible(false);
             }
             else{
-                JOptionPane.showMessageDialog(null,"EL NOMBRE DEL COMMIT YA EXISTE.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);        
+                JOptionPane.showMessageDialog(null,"EL NOMBRE DEL COMMIT YA EXISTE.","operación mal ingresada",JOptionPane.WARNING_MESSAGE);        
                 this.setVisible(false);
             }
         }
         else{
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL COMMIMT.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"NO SE INGRESÓ EL NOMBRE DEL AUTOR O DEL COMMIT.","operación mal ingresada",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCommitActionPerformed
-
+    /**
+     * metodo que cierra la ventana
+     */
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonVolverActionPerformed

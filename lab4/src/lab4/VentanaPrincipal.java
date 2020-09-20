@@ -1,21 +1,28 @@
-
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 2.4
+ */ 
 package lab4;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Esteban
- */
+* Clase para mostrar la interfaz del menu principal,
+* determinada por nombreAutor,nombreRepo y repo,
+* @version 2.4
+* @author Esteban Cruces Araneda
+*/
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     String nombreAutor;
     String nombreRepo;
     Repositorio repo;
     /**
-     * Creates new form Ventana
-     * @param autor
-     * @param repo
+     * constructor
+     * @param autor nombre del autor de repositorio
+     * @param repo nombre del repositorio
      */
     public VentanaPrincipal(String autor, String repo) {
         this.nombreAutor = autor;
@@ -24,7 +31,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();    
         this.jTextAreaNombreAutorYRepo.setText("El nombre del Autor es: "+this.nombreAutor+"\nEl nombre del Repositorio es: "+this.nombreRepo);
     }
-
+    /**
+     * constructor
+     */
     public VentanaPrincipal() {        
         initComponents();
     }
@@ -343,17 +352,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * metodo que abre la ventana gitAdd
+     * @param evt
+     */
     private void btGitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitAddActionPerformed
        VentanaGitAdd ventanitaAdd = new VentanaGitAdd(this);
        ventanitaAdd.setVisible(true);
     }//GEN-LAST:event_btGitAddActionPerformed
-
+    /**
+     * metodo que abre la ventana gitCommit
+     * @param evt
+     */
     private void btGitCommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitCommitActionPerformed
        VentanaGitCommit ventanitaCommit = new VentanaGitCommit(this);
        ventanitaCommit.setVisible(true);
     }//GEN-LAST:event_btGitCommitActionPerformed
-    
+    /**
+     * metodo que ejecuta el metodo crearArchivo de repo
+     * @param evt
+     */
     private void btCrearArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearArchivoActionPerformed
         if(this.textFieldNombreArchivo.getText().length() >= 1){
             int estado = this.repo.crearArchivo(this.textFieldNombreArchivo.getText(), this.textAreaContenidoArchivo.getText());
@@ -362,38 +380,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 this.textWorkspace.setText(wsString);
             }
             else{
-                JOptionPane.showMessageDialog(null,"EL NOMBRE DEL ARCHIVO YA EXISTE.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);        
+                JOptionPane.showMessageDialog(null,"EL NOMBRE DEL ARCHIVO YA EXISTE.","operación mal ingresada",JOptionPane.WARNING_MESSAGE);        
             }
         }
         else{
-            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL ARCHIVO PARA AGREGARLO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL ARCHIVO PARA AGREGARLO.","operación mal ingresada",JOptionPane.ERROR_MESSAGE);
         }
         this.textFieldNombreArchivo.setText("");
         this.textAreaContenidoArchivo.setText("");
     }//GEN-LAST:event_btCrearArchivoActionPerformed
-
+    /**
+     * metodo que cierra la ventana
+     * @param evt
+     */
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btSalirActionPerformed
-
+    /**
+     * metodo que ejecuta el metodo gitPush de repo
+     * @param evt
+     */
     private void btGitPushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitPushActionPerformed
         this.repo.gitPush();
         this.textRemoteRepository.setText(this.repo.rRepository.toString());
     }//GEN-LAST:event_btGitPushActionPerformed
-
+/**
+     * metodo que ejecuta el metodo gitPull de repo
+     * @param evt
+     */
     private void btGitPullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitPullActionPerformed
         int estado = this.repo.gitPull();
         if(estado == 1){
-            JOptionPane.showMessageDialog(null,"EL REPOSITORIO REMOTO SE ENCUENTRA VACIO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);        
+            JOptionPane.showMessageDialog(null,"EL REPOSITORIO REMOTO SE ENCUENTRA VACIO.","operación mal ingresada",JOptionPane.ERROR_MESSAGE);        
         }
         else{
             this.textWorkspace.setText(this.repo.workspace.toString());
+            JOptionPane.showMessageDialog(null,"SE HA EJECUTA EL COMANDO GIT PULL.","Git Pull finalizado.",JOptionPane.PLAIN_MESSAGE);
+        
         }
     }//GEN-LAST:event_btGitPullActionPerformed
-
+    /**
+     * metodo que ejecuta el metodo gitLog de repo, y los muestra a traves de ventanashow
+     * @param evt
+     */
     private void btGitLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitLogActionPerformed
-        //String ultimos5Commit = this.repo.gotLog();
-        JOptionPane.showMessageDialog(null,this.repo.gotLog(),"GIT LOG",JOptionPane.INFORMATION_MESSAGE);        
+        VentanaShow ventanitaLog = new VentanaShow(this.repo.gitLog());  
     }//GEN-LAST:event_btGitLogActionPerformed
 
     /**

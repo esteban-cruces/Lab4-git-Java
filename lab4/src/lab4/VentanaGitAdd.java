@@ -1,23 +1,37 @@
-
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.3
+ */ 
 package lab4;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Esteban
- */
+* Clase para mostrar la interfaz de gitcommit,
+* determinada por interfaz
+* @version 1.3
+* @author Esteban Cruces Araneda
+*/
 public class VentanaGitAdd extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaGitAdd
      */
-    VentanaPrincipal interfaz;
+    VentanaPrincipal interfaz;    
+    /**
+     * Constructor
+     * @param ventana ventana principal
+     */
     public VentanaGitAdd(VentanaPrincipal ventana) {
         this.interfaz = ventana;
         initComponents();
         
     }
+    /**
+     * Constructor
+     */
     public VentanaGitAdd() {
         initComponents();
     }
@@ -139,7 +153,10 @@ public class VentanaGitAdd extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * metodo que reliaza un gitAdd con algunos archivos
+     * @param evt
+     */
     private void btGitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitAddActionPerformed
         int estado = this.interfaz.repo.gitAdd(this.jTextAreaNombresArchivos.getText());
         if(estado == 0){
@@ -147,18 +164,23 @@ public class VentanaGitAdd extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else{
-            JOptionPane.showMessageDialog(null,"ALGÚN ARCHIVO NO PERTENECE AL WORKSPACE, POR LO QUE SE OMITIRÁ ESE ARCHIVO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);                                
+            JOptionPane.showMessageDialog(null,"ALGÚN ARCHIVO NO PERTENECE AL WORKSPACE, POR LO QUE SE OMITIRÁ ESE ARCHIVO.","operación mal ingresada",JOptionPane.WARNING_MESSAGE);                                
             this.interfaz.textIndex.setText(this.interfaz.repo.index.toString());
             this.setVisible(false);
         }
     }//GEN-LAST:event_btGitAddActionPerformed
-
+    /**
+     * metodo que reliaza un gitAdd --All
+     * @param evt
+     */
     private void btGitAddAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitAddAllActionPerformed
         this.interfaz.repo.gitAdd();
         this.interfaz.textIndex.setText(this.interfaz.repo.index.toString());
         this.setVisible(false);
     }//GEN-LAST:event_btGitAddAllActionPerformed
-
+    /**
+     * metodo que cierra la ventana
+     */
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonVolverActionPerformed

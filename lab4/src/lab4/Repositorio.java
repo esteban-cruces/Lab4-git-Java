@@ -1,16 +1,21 @@
-
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.8
+ */ 
 package lab4;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
- *
- * @author Esteban
- */
-/*Esta clase representa el objeto repositorio, el cual contiene las 4 zonas de trabajo además del nombre del autor, nombre del repositorio y fecha*/
+* Clase para representar un repositorio,
+* determinada por workspace,index,lRepository,rRepository,autor,nombreRepositorio y fecha
+* @version 1.8
+* @author Esteban Cruces Araneda
+*/
 public class Repositorio {
     /*Este atributo representa la zona de trabajo Workspace*/
     Workspace workspace;
@@ -26,7 +31,11 @@ public class Repositorio {
     String nombreRepositorio;
     /*Este atributo representa la fecha de cracion del repositorio*/
     String fecha;
-    /*Construnctor repositorio*/
+    /**
+     * constructor
+     * @param NombreRepositorio nombre del repositorio
+     * @param Autor nombre del autor
+     */
     public Repositorio(String NombreRepositorio, String Autor){
         this.nombreRepositorio = NombreRepositorio;
         this.autor = Autor;
@@ -36,15 +45,19 @@ public class Repositorio {
         this.lRepository = new LocalRepository();
         this.rRepository = new RemoteRepository();
     }
-    /*Metodos-----------------------------------------------
-    /*Metodo para crear un repositorio con nombre y autor
-    simula el comando gitInit*/
+    /**
+     * metodo para crear un repositorio con nombre y autor
+     * @param NombreRepositorio nombre del repositorio
+     * @param Autor nombre del autor
+     * @return Repositorio entrega el repositorio creado con los correspondientes parametros
+     */
     public static Repositorio gitInit(String NombreRepositorio, String Autor){
         Repositorio repo = new Repositorio(NombreRepositorio, Autor);
         return repo;
     }
-    /*Metodo para "mover" los archivos del Index al workspace
-    simula el comando gitAdd*/
+    /**
+     * metodo que agrega todos los archivos del workspace al index, si es que aun no estan ahi
+     */
     public void gitAdd(){
         /*--------------------------------------------------------------------------------
         AQUI SE CREA UN ARREGLO DE STRING SOLO CON LOS NOMBRES DE LOS ARCHIVOS QUE SE ENCUENTRA EN index*/
@@ -70,6 +83,11 @@ public class Repositorio {
             }
         }
     }    
+    /**
+     * metodo que agrega determinada cantidad de archivos del workspace al index, si es que aun no estan ahi
+     * @param nombreArchivosAdd nombres de los archivos a agregar
+     * @return int indicando con un 0 si todos los archivos pertenecian al workspace
+     */
     public int gitAdd(String nombreArchivosAdd){
         int estado = 0;/*si este numero permacene en 0 significa que todos los archivos existen en el workspace*/
         /*aqui se crea un arrayList donde cada posicion es el nombre de un archivo*/
@@ -109,8 +127,12 @@ public class Repositorio {
         }
         return estado;
     }
-    /*Metodo crearArchivo
-    Este metodo crea un archivoDeTextoPlano y lo agrega en un Repositorio*/
+    /**
+     * metodo que crea un archivo y lo agrega al workspace
+     * @param nameArchivo nombre del archivo
+     * @param contenido contenido del archivo
+     * @return int que indica con 0 si el archivo no existia previamente
+     */
     public int crearArchivo(String nameArchivo, String contenido){
         int estado = 0;/*esta variable indica si el nombre del archivo ya existe, 1 si existe*/
         for(ArchivoDeTextoPlano arch : this.workspace.ws){
@@ -129,8 +151,12 @@ public class Repositorio {
         }
         return estado;
     }
-    /*Metodo gitCommit
-    Este metodo agrega los archivos que se encuentrasn en el index al local repository, esto en formato commit*/
+    /**
+     * metodo que crea un commit en el local repository a partir del contenido del index
+     * @param nombreCommit
+     * @param nombreAutorCommit
+     * @return int que indica con 0 si el commit no existia previamente
+     */
     public int gitCommit(String nombreCommit, String nombreAutorCommit){
         int estado = 0;/*esta variable servirá para revisar si el nombre del commit ya existe, 1 es que ya existe*/
         for(Commit commit : this.lRepository.lR){
@@ -152,8 +178,9 @@ public class Repositorio {
         /*con lo arterior se reviso si existen archivos en el index*/
         return estado;
     }
-    /*Metodo gitPush
-    Este metodo agrega todos los commits almacenados en el localRepository y los agrega al remoteRepository*/
+    /**
+     * metodo que agrega los commit del local repository en el remote repository
+     */
     public void gitPush(){
         int estado = 0;/*esta variable indica si un commit ya existe en el remote, un 1 significa que ya existe*/
         for(Commit commitLR : this.lRepository.lR){
@@ -169,8 +196,10 @@ public class Repositorio {
             estado = 0;
         }
     }
-    /*Metodo gitPull
-    Este metodo toma todos los archivos del Remote Repository y los copia en el Workspace.*/
+    /**
+     * metodo que toma todos los archivos del Remote Repository y los copia en el Workspace
+     * @return int con un 1 si el remote repository esta vacio
+     */
     public int gitPull(){
         int estado = 0;/*si esta variable no cambia, significa que el remote no esta vacio*/
         if(this.rRepository.rR.size()>0){
@@ -204,10 +233,12 @@ public class Repositorio {
             i++;
         }
         this.rRepository = new RemoteRepository();*/
-    }    
-    /*Esta funcionalidad debe mostrar una lista con los ultimos 5 commits del Local Repository (indicando fecha, mensaje descriptivo 
-    y archivos anadidos). Si hay menos de 5 commits, muestra todos los que estén disponibles.*/
-    public String gotLog(){
+    }
+    /**
+     * metodo que debe mostrar una lista con los ultimos 5 commits del Local Repository
+     * @return string con la representacion de los ultimos 5 commits
+     */
+    public String gitLog(){
         String ultimos5Commit = "####--ÚLTIMO-5-COMMITS--####\n";
         for(int i = this.lRepository.lR.size(); i > this.lRepository.lR.size() - 5; i--){
             if(i >= 1){

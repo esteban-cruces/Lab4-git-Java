@@ -1,25 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.2
  */
 package lab4;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author Esteban
- */
-/*Esta clase es la encargada de almacenar los commit hehcos desde el index que aun no llegan al remote repository*/
+* Clase para representar la zona local repository,
+* determinada po lR,
+* @version 1.2
+* @author Esteban Cruces Araneda
+*/
 public class LocalRepository {
     /*En este atributo se irán agregando los distintos commits que se almacenen en localRepository*/
-    ArrayList<Commit> lR; 
-    /*Constructo*/
+    ArrayList<Commit> lR;     
+    /**
+     * constructor
+     */
     public LocalRepository(){
         this.lR = new ArrayList<>();
     }
-    /*metodo que entrega un String con la representacion del Local REpository*/
+    /**
+     * metodo que muestra representacion como string del local repository
+     * @return String como representacion del local repository
+     */
     @Override
     public String toString(){
         String lRString = "##########\n";

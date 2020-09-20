@@ -1,23 +1,34 @@
- 
+/**
+ * @author Esteban Cruces Araneda
+ * Rut 20201381-3
+ * Ultimo Edit 20/09/2020
+ * @version 1.4
+ */ 
 package lab4;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author Esteban
- */
-/*Esta es la clase que representa al workspace, es aqui donde el usuario agrega archivos de forma local*/
+* Clase para representar la zona workspace,
+* determinada por ws,
+* @version 1.4
+* @author Esteban Cruces Araneda
+*/
 public class Workspace {
     /*Atributos
     Este atributo se encarga de almacenar todos los archivos que se deseen guardar en el Workspace*/
     ArrayList<ArchivoDeTextoPlano> ws;
-    /*constructor*/
+    /**
+     * constructor
+     */
     public Workspace(){
         this.ws = new ArrayList<>();
     }
-    /*Metodos--------------------------------------------
-    Metodo que busca la posicion de un archivo, según el nombre, dentro del workspace*/
+    /**
+     * metodo que encuentra la posicion de un archivo si existe
+     * @param nombreDocumento archivo
+     * @return int con la posicion del archivo, -1 si no existe
+     */
     public int encontrarPosArch(String nombreDocumento){
         int posicion = 0;
         while(posicion < this.ws.size()){
@@ -30,7 +41,10 @@ public class Workspace {
         }      
         return -1;
     }
-    /*metodo que entrega una representacion de Workspace como String*/
+    /**
+     * metodo que muestra representacion como string de la zona workspace
+     * @return String como representacion de la zona workspace
+     */
     @Override
     public String toString(){
         String wsString = "##########\n";
@@ -39,19 +53,4 @@ public class Workspace {
         }
         return wsString;
     }
-    /*Metodo que agrega los archivos de un commit a un workspace, en caso de que el archivo ya se encuentre, lo reemplaza*/
-    /*public Workspace agregarArchCommit(Workspace wsAux, Commit esteCommit){
-        int i=0;
-        while(i < esteCommit.copiaIndex.ix.size()){
-            int posicion = this.encontrar(wsAux, esteCommit.copiaIndex.ix.get(i).nombreArchivo);
-            if(posicion == -1){
-                wsAux.ws.add(esteCommit.copiaIndex.ix.get(i));
-            }
-            else{
-                wsAux.ws.set(posicion,esteCommit.copiaIndex.ix.get(i));
-            }
-            i++;
-        }
-        return wsAux;
-    }*/
 }
