@@ -33,7 +33,7 @@ public class Workspace {
     /*metodo que entrega una representacion de Workspace como String*/
     @Override
     public String toString(){
-        String wsString = "####-WORKSPACE-####\n---------------------------------\n";
+        String wsString = "##########\n";
         for(int i = 0; i < this.ws.size(); i++){
             wsString += this.ws.get(i).toString()+"---------------------------------\n";
         }

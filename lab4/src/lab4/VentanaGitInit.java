@@ -29,13 +29,22 @@ public class VentanaGitInit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel1 = new java.awt.Panel();
         textFieldAutor = new javax.swing.JTextField();
-        textFieldRepositorio = new javax.swing.JTextField();
         jLabelAutor = new javax.swing.JLabel();
         jLabelRepositorio = new javax.swing.JLabel();
+        textFieldRepositorio = new javax.swing.JTextField();
         jButtonIngresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabelAutor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelAutor.setText("Nombre Autor:");
+
+        jLabelRepositorio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelRepositorio.setText("Nombre Repositorio:");
 
         textFieldRepositorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,10 +52,7 @@ public class VentanaGitInit extends javax.swing.JFrame {
             }
         });
 
-        jLabelAutor.setText("Nombre Autor:");
-
-        jLabelRepositorio.setText("Nombre Repositorio:");
-
+        jButtonIngresar.setBackground(new java.awt.Color(0, 204, 204));
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,41 +60,53 @@ public class VentanaGitInit extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabelAutor))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabelRepositorio))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jButtonIngresar)))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabelAutor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelRepositorio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonIngresar)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabelAutor)
-                .addGap(10, 10, 10)
-                .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabelRepositorio)
-                .addGap(10, 10, 10)
-                .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jButtonIngresar))
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabelAutor))
-                    .addComponent(textFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabelRepositorio))
-                    .addComponent(textFieldRepositorio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(jButtonIngresar))
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -147,6 +165,7 @@ public class VentanaGitInit extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIngresar;
     private javax.swing.JLabel jLabelAutor;
     private javax.swing.JLabel jLabelRepositorio;
+    private java.awt.Panel panel1;
     private javax.swing.JTextField textFieldAutor;
     private javax.swing.JTextField textFieldRepositorio;
     // End of variables declaration//GEN-END:variables

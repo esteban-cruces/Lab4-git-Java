@@ -29,4 +29,11 @@ public class Commit {
         this.archivos = contenido;
         this.fecha = Fecha.obtenerFechaActual();
     }   
+    /*metodo que entrega un String con la representacion de un commit*/
+    @Override
+    public String toString(){
+        String commitString = "Autor Commit: "+this.autor+"\nNombre Commit: "+this.nombreCommit+"\nFecha: "+this.fecha+"\n.............................................\n";
+        commitString = this.archivos.stream().map((arch) -> arch.toString()+".............................................\n").reduce(commitString, String::concat);
+        return commitString;
+    }
 }

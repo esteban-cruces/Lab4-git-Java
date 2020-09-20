@@ -22,7 +22,7 @@ public class Index {
     /*metodo que entrega como salida una representacion como string de Index*/
     @Override
     public String toString(){
-        String ixString = "####-INDEX-####\n---------------------------------\n";
+        String ixString = "##########\n";
         for(int i = 0; i < this.ix.size(); i++){
             ixString += this.ix.get(i).toString()+"---------------------------------\n";
         }

@@ -11,7 +11,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     String nombreAutor;
     String nombreRepo;
-    String archivosAdd;
     Repositorio repo;
     /**
      * Creates new form Ventana
@@ -39,6 +38,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel2 = new java.awt.Panel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textWorkspace = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -51,25 +51,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelIndex = new javax.swing.JLabel();
         jLabelLocalRepository = new javax.swing.JLabel();
         jLabelRemoteRepository = new javax.swing.JLabel();
-        btGitAdd = new javax.swing.JButton();
-        btGitPush = new javax.swing.JButton();
-        btGitPull = new javax.swing.JButton();
-        btGitCommit = new javax.swing.JButton();
-        btCrearArchivo = new javax.swing.JButton();
-        btSalir = new javax.swing.JButton();
-        btGitLog = new javax.swing.JButton();
-        textFieldNombreArchivo = new javax.swing.JTextField();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        textAreaContenidoArchivo = new javax.swing.JTextArea();
-        jLabelNombreArchivo = new javax.swing.JLabel();
-        jLabelContenidoArchivo = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextAreaNombreAutorYRepo = new javax.swing.JTextArea();
         jLabelDatosRepo = new javax.swing.JLabel();
-        jButtonActualizarIndex = new javax.swing.JButton();
-        jButtonActualizarLocal = new javax.swing.JButton();
+        panel3 = new java.awt.Panel();
+        textFieldNombreArchivo = new javax.swing.JTextField();
+        jLabelNombreArchivo = new javax.swing.JLabel();
+        jLabelContenidoArchivo = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        textAreaContenidoArchivo = new javax.swing.JTextArea();
+        btCrearArchivo = new javax.swing.JButton();
+        panel1 = new java.awt.Panel();
+        btGitAdd = new javax.swing.JButton();
+        btGitCommit = new javax.swing.JButton();
+        btGitPush = new javax.swing.JButton();
+        btGitPull = new javax.swing.JButton();
+        btGitLog = new javax.swing.JButton();
+        btSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 51, 102));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        panel2.setBackground(new java.awt.Color(153, 153, 255));
 
         textWorkspace.setColumns(20);
         textWorkspace.setRows(5);
@@ -91,32 +95,90 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         textRemoteRepository.setEditable(false);
         jScrollPane4.setViewportView(textRemoteRepository);
 
+        jLabelWorkspace.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelWorkspace.setText("Workspace");
 
+        jLabelIndex.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelIndex.setText("Index");
 
+        jLabelLocalRepository.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelLocalRepository.setText("Local Repository");
 
+        jLabelRemoteRepository.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelRemoteRepository.setText("Remote Repository");
 
-        btGitAdd.setText("Git Add");
-        btGitAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGitAddActionPerformed(evt);
-            }
-        });
+        jTextAreaNombreAutorYRepo.setColumns(20);
+        jTextAreaNombreAutorYRepo.setRows(5);
+        jTextAreaNombreAutorYRepo.setEditable(false);
+        jScrollPane6.setViewportView(jTextAreaNombreAutorYRepo);
 
-        btGitPush.setText("Git Push");
+        jLabelDatosRepo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelDatosRepo.setText("Datos Del Repositorio");
 
-        btGitPull.setText("Git Pull");
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabelWorkspace)
+                        .addGap(182, 182, 182)
+                        .addComponent(jLabelIndex)
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabelLocalRepository)
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabelRemoteRepository)
+                        .addGap(108, 108, 108)
+                        .addComponent(jLabelDatosRepo))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelWorkspace)
+                    .addComponent(jLabelIndex)
+                    .addComponent(jLabelLocalRepository)
+                    .addComponent(jLabelRemoteRepository)
+                    .addComponent(jLabelDatosRepo))
+                .addGap(6, 6, 6)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        btGitCommit.setText("Git Commit");
-        btGitCommit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGitCommitActionPerformed(evt);
-            }
-        });
+        panel3.setBackground(new java.awt.Color(153, 153, 255));
 
+        jLabelNombreArchivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelNombreArchivo.setText("Nombre Archivo:");
+
+        jLabelContenidoArchivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelContenidoArchivo.setText("Contenido del Archivo:");
+
+        textAreaContenidoArchivo.setColumns(20);
+        textAreaContenidoArchivo.setRows(5);
+        jScrollPane5.setViewportView(textAreaContenidoArchivo);
+
+        btCrearArchivo.setBackground(new java.awt.Color(0, 204, 204));
+        btCrearArchivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btCrearArchivo.setText("Agregar Archivo");
         btCrearArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +186,90 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
+        panel3.setLayout(panel3Layout);
+        panel3Layout.setHorizontalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelNombreArchivo)
+                    .addComponent(jLabelContenidoArchivo))
+                .addGap(18, 18, 18)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                    .addComponent(textFieldNombreArchivo))
+                .addGap(0, 26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btCrearArchivo)
+                .addGap(72, 72, 72))
+        );
+        panel3Layout.setVerticalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreArchivo))
+                .addGap(35, 35, 35)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelContenidoArchivo)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btCrearArchivo)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        panel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        btGitAdd.setBackground(new java.awt.Color(0, 204, 204));
+        btGitAdd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btGitAdd.setText("Git Add");
+        btGitAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGitAddActionPerformed(evt);
+            }
+        });
+
+        btGitCommit.setBackground(new java.awt.Color(0, 204, 204));
+        btGitCommit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btGitCommit.setText("Git Commit");
+        btGitCommit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGitCommitActionPerformed(evt);
+            }
+        });
+
+        btGitPush.setBackground(new java.awt.Color(0, 204, 204));
+        btGitPush.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btGitPush.setText("Git Push");
+        btGitPush.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGitPushActionPerformed(evt);
+            }
+        });
+
+        btGitPull.setBackground(new java.awt.Color(0, 204, 204));
+        btGitPull.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btGitPull.setText("Git Pull");
+        btGitPull.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGitPullActionPerformed(evt);
+            }
+        });
+
+        btGitLog.setBackground(new java.awt.Color(0, 204, 204));
+        btGitLog.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btGitLog.setText("Git Log");
+        btGitLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGitLogActionPerformed(evt);
+            }
+        });
+
+        btSalir.setBackground(new java.awt.Color(0, 204, 204));
+        btSalir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,149 +277,67 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btGitLog.setBackground(new java.awt.Color(51, 255, 255));
-        btGitLog.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btGitLog.setForeground(new java.awt.Color(255, 0, 255));
-        btGitLog.setText("Git Log");
-
-        textFieldNombreArchivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldNombreArchivoActionPerformed(evt);
-            }
-        });
-
-        textAreaContenidoArchivo.setColumns(20);
-        textAreaContenidoArchivo.setRows(5);
-        jScrollPane5.setViewportView(textAreaContenidoArchivo);
-
-        jLabelNombreArchivo.setText("Nombre Archivo:");
-
-        jLabelContenidoArchivo.setText("Contenido del Archivo:");
-
-        jTextAreaNombreAutorYRepo.setColumns(20);
-        jTextAreaNombreAutorYRepo.setRows(5);
-        jTextAreaNombreAutorYRepo.setEditable(false);
-        jScrollPane6.setViewportView(jTextAreaNombreAutorYRepo);
-
-        jLabelDatosRepo.setText("Datos Del Repositorio");
-
-        jButtonActualizarIndex.setText("ACTUALIZAR INDEX");
-        jButtonActualizarIndex.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarIndexActionPerformed(evt);
-            }
-        });
-
-        jButtonActualizarLocal.setText("ACTUALIZAR LOCAL");
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btGitAdd)
+                    .addComponent(btGitCommit)
+                    .addComponent(btGitPush)
+                    .addComponent(btGitPull)
+                    .addComponent(btGitLog))
+                .addContainerGap(200, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btSalir)
+                .addContainerGap())
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btGitAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btGitCommit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btGitPush)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btGitPull)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btGitLog)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btSalir)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabelWorkspace)
-                .addGap(139, 139, 139)
-                .addComponent(jLabelIndex)
-                .addGap(154, 154, 154)
-                .addComponent(jLabelLocalRepository)
-                .addGap(113, 113, 113)
-                .addComponent(jLabelRemoteRepository)
-                .addGap(189, 189, 189)
-                .addComponent(jLabelDatosRepo))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(jButtonActualizarIndex)
                 .addGap(71, 71, 71)
-                .addComponent(jButtonActualizarLocal)
-                .addGap(279, 279, 279)
-                .addComponent(jLabelNombreArchivo)
-                .addGap(40, 40, 40)
-                .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(btGitAdd)
-                .addGap(13, 13, 13)
-                .addComponent(btGitCommit)
-                .addGap(17, 17, 17)
-                .addComponent(btGitPush)
-                .addGap(19, 19, 19)
-                .addComponent(btGitPull)
-                .addGap(35, 35, 35)
-                .addComponent(btGitLog)
-                .addGap(219, 219, 219)
-                .addComponent(jLabelContenidoArchivo)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(btSalir)
-                .addGap(982, 982, 982)
-                .addComponent(btCrearArchivo))
+                .addContainerGap()
+                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelWorkspace)
-                    .addComponent(jLabelIndex)
-                    .addComponent(jLabelLocalRepository)
-                    .addComponent(jLabelRemoteRepository)
-                    .addComponent(jLabelDatosRepo))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonActualizarIndex)
-                    .addComponent(jButtonActualizarLocal)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabelNombreArchivo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(textFieldNombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btGitAdd))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btGitCommit))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btGitPush))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btGitPull))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btGitLog))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabelContenidoArchivo))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btSalir)
-                    .addComponent(btCrearArchivo)))
+                    .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -283,19 +347,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btGitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitAddActionPerformed
        VentanaGitAdd ventanitaAdd = new VentanaGitAdd(this);
        ventanitaAdd.setVisible(true);
-       /*debido que al abrir la ventanitaAdd los String ingresados en esta no se hacen presente de inmediato aca,
-       es que el verdadero metodo GitAdd se ejecuta con el boton 'ACTUALIZAR INDEX'*/
     }//GEN-LAST:event_btGitAddActionPerformed
 
     private void btGitCommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitCommitActionPerformed
-        System.out.println("Esto es Git Commit");        
+       VentanaGitCommit ventanitaCommit = new VentanaGitCommit(this);
+       ventanitaCommit.setVisible(true);
     }//GEN-LAST:event_btGitCommitActionPerformed
     
     private void btCrearArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearArchivoActionPerformed
         if(this.textFieldNombreArchivo.getText().length() >= 1){
-            this.repo.crearArchivo(this.textFieldNombreArchivo.getText(), this.textAreaContenidoArchivo.getText());
-            String wsString = this.repo.workspace.toString();
-            this.textWorkspace.setText(wsString);        
+            int estado = this.repo.crearArchivo(this.textFieldNombreArchivo.getText(), this.textAreaContenidoArchivo.getText());
+            if(estado == 0){
+                String wsString = this.repo.workspace.toString();
+                this.textWorkspace.setText(wsString);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"EL NOMBRE DEL ARCHIVO YA EXISTE.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);        
+            }
         }
         else{
             JOptionPane.showMessageDialog(null,"DEBE INGRESAR EL NOMBRE DEL ARCHIVO PARA AGREGARLO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);
@@ -308,20 +376,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btSalirActionPerformed
 
-    private void textFieldNombreArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNombreArchivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textFieldNombreArchivoActionPerformed
+    private void btGitPushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitPushActionPerformed
+        this.repo.gitPush();
+        this.textRemoteRepository.setText(this.repo.rRepository.toString());
+    }//GEN-LAST:event_btGitPushActionPerformed
 
-    private void jButtonActualizarIndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarIndexActionPerformed
-        if("AddAll".equals(this.archivosAdd)){
-            this.repo.gitAdd();
+    private void btGitPullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitPullActionPerformed
+        int estado = this.repo.gitPull();
+        if(estado == 1){
+            JOptionPane.showMessageDialog(null,"EL REPOSITORIO REMOTO SE ENCUENTRA VACIO.","operación mal ingresada",JOptionPane.INFORMATION_MESSAGE);        
         }
         else{
-            this.repo.gitAdd(this.archivosAdd);
+            this.textWorkspace.setText(this.repo.workspace.toString());
         }
-        this.textIndex.setText(this.repo.index.toString());
-        this.archivosAdd = "";
-    }//GEN-LAST:event_jButtonActualizarIndexActionPerformed
+    }//GEN-LAST:event_btGitPullActionPerformed
+
+    private void btGitLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGitLogActionPerformed
+        //String ultimos5Commit = this.repo.gotLog();
+        JOptionPane.showMessageDialog(null,this.repo.gotLog(),"GIT LOG",JOptionPane.INFORMATION_MESSAGE);        
+    }//GEN-LAST:event_btGitLogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,27 +437,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btGitPull;
     private javax.swing.JButton btGitPush;
     private javax.swing.JButton btSalir;
-    private javax.swing.JButton jButtonActualizarIndex;
-    private javax.swing.JButton jButtonActualizarLocal;
     private javax.swing.JLabel jLabelContenidoArchivo;
     private javax.swing.JLabel jLabelDatosRepo;
+    private javax.swing.JLabel jLabelDatosRepo1;
     private javax.swing.JLabel jLabelIndex;
+    private javax.swing.JLabel jLabelIndex1;
     private javax.swing.JLabel jLabelLocalRepository;
+    private javax.swing.JLabel jLabelLocalRepository1;
     private javax.swing.JLabel jLabelNombreArchivo;
     private javax.swing.JLabel jLabelRemoteRepository;
+    private javax.swing.JLabel jLabelRemoteRepository1;
     private javax.swing.JLabel jLabelWorkspace;
+    private javax.swing.JLabel jLabelWorkspace1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextAreaNombreAutorYRepo;
+    private javax.swing.JTextArea jTextAreaNombreAutorYRepo1;
+    private java.awt.Panel panel1;
+    private java.awt.Panel panel2;
+    private java.awt.Panel panel3;
+    private java.awt.Panel panel4;
     private javax.swing.JTextArea textAreaContenidoArchivo;
     private javax.swing.JTextField textFieldNombreArchivo;
-    private javax.swing.JTextArea textIndex;
-    private javax.swing.JTextArea textLocalRepository;
+    public javax.swing.JTextArea textIndex;
+    public javax.swing.JTextArea textIndex1;
+    public javax.swing.JTextArea textLocalRepository;
+    public javax.swing.JTextArea textLocalRepository1;
     private javax.swing.JTextArea textRemoteRepository;
+    private javax.swing.JTextArea textRemoteRepository1;
     private javax.swing.JTextArea textWorkspace;
+    private javax.swing.JTextArea textWorkspace1;
     // End of variables declaration//GEN-END:variables
 }
